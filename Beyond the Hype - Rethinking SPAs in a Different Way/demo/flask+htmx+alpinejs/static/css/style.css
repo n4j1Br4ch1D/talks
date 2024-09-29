@@ -1,0 +1,250 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.htmx-settling img {
+  opacity: 0;
+}
+img {
+  transition: opacity 300ms ease-in;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(90px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-90px);
+  }
+}
+
+/* define animations for the old and new content */
+::view-transition-old(slide-it) {
+  animation: 180ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+::view-transition-new(slide-it) {
+  animation: 420ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+/* tie the view transition to a given CSS class */
+.sample-transition {
+  view-transition-name: slide-it;
+}
+
+.polo {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  position: relative;
+  /* From https://css.glass */
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(54, 126, 69, 0.74);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-shape1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  position: relative;
+  animation: one 10s infinite;
+}
+
+.bg-shape2 {
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  position: relative;
+  animation: two 10s infinite;
+}
+.bg-shape3 {
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  position: relative;
+  animation: two 10s infinite;
+}
+@keyframes one {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: -100px;
+    top: 70px;
+  }
+  50% {
+    left: 20px;
+    top: 150px;
+  }
+  75% {
+    left: 50px;
+    top: 100px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@keyframes two {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 50px;
+    top: 10px;
+  }
+  50% {
+    left: 100px;
+    top: 50px;
+  }
+  75% {
+    left: 50px;
+    top: 100px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@keyframes three {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 50px;
+    top: 10px;
+  }
+  50% {
+    left: 100px;
+    top: 50px;
+  }
+  75% {
+    left: 50px;
+    top: 100px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+.opacity-50 {
+  opacity: 0.3;
+}
+.bg-blur {
+  filter: blur(90px);
+}
+.bg-primary {
+  background-color: rgb(30, 0, 255);
+}
+.bg-teal {
+  background-color: rgb(255, 72, 173);
+}
+.bg-purple {
+  background-color: rgb(140, 0, 215);
+}
+
+/* width */
+::-webkit-scrollbar {
+  border-radius: 2px;
+  width: 4px;
+  padding-left: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+
+  background: gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#loading-indicator {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#loading-indicator {
+  opacity: 1;
+  display: block;
+}
+
+.spin-in {
+  animation: slideInSpin 0.5s ease-out forwards;
+}
+@keyframes spinIn {
+  0% {
+      transform: rotate(-360deg) scale(0);
+      opacity: 0;
+  }
+  100% {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+  }
+}
+
+
+@keyframes slideIn {
+  0% {
+      transform: translateX(-150%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes slideInSpin {
+  0% {
+      transform: translateX(-150%) rotate(-360deg);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0) rotate(0deg);
+      opacity: 1;
+  }
+}

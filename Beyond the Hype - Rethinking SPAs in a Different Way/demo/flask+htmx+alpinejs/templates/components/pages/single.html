@@ -1,0 +1,17 @@
+
+
+
+<title>{{community.title}} Page</title>
+
+
+  
+{% extends 'components/layout.html' %}
+
+{% block content %}
+
+    {% with community=community %}
+      {% include 'components/verticalCard.html' %}
+    {% endwith %}
+
+
+{% endblock %}

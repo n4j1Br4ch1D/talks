@@ -1,0 +1,57 @@
+<div
+  id="card-content-profil-{{ community.id }}"
+  class="card-content-profil flex justify-between items-center pt-2 shadow-sm p-3 hover:rounded-lg hover:bg-slate-700 hover:bg-opacity-50 transition duration-100 ease-in-out"
+>
+  <div class="flex gap-x-2 items-center">
+    <img
+      class="avatar h-16 w-16 rounded-full border-2 border-slate-600 bg-slate-700 opacity-50 p-2"
+      loading="eager"
+      src="../{{ community.img }}"
+      alt=""
+    />
+    <div class="card-name-user text-lg text-slate-400">
+      <a
+        class="font-semibold cursor-pointer"
+        href="/community/{{ community.slug }}"
+        hx-get="/community/{{ community.slug }}"
+        hx-target="#content"
+        hx-select="#content"
+        hx-swap="outerHTML transition:true"
+        hx-push-url="true"
+        preload="mouseover"
+        preload-images="true"
+        ><h3>{{ community.title }}</h3></a
+      >
+      <div class="flex items-center gap-x-1">
+        <span class="h-3 w-3 rounded-full bg-green-500"></span>
+        <span>{{ community.members }} Member</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-action flex overflow-clip rounded-full">
+    {% if community.is_member %}
+    <button
+      class="w-20 content-center flex items-center px-2 py-1 text-sm text-white bg-slate-700 hover:bg-gray-600"
+      hx-trigger="click"
+      hx-target="#card-content-profil-{{ community.id }}"
+      hx-swap="outerHTML"
+      hx-post="/toggle-joing/{{ community.id }}?action=unjoin"
+    >
+      <i class="bx bxs-group mr-1"></i>
+      <span>Unjoin</span>
+    </button>
+    {% else %}
+    <button
+      class="w-20 content-center flex items-center px-2 py-1 text-sm text-white bg-slate-700 hover:bg-gray-600"
+      hx-trigger="click"
+      hx-target="#card-content-profil-{{ community.id }}"
+      hx-swap="outerHTML"
+      hx-post="/toggle-joing/{{ community.id }}?action=join"
+    >
+      <i class="bx bxs-group mr-1"></i>
+      <span>Join-in</span>
+    </button>
+    {% endif %}
+  </div>
+</div>

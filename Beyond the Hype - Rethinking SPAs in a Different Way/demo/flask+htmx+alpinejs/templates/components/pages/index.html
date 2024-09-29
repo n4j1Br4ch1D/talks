@@ -1,0 +1,29 @@
+<title>Home Page</title>
+
+{% extends 'components/layout.html' %} {% block content %} {% with
+communities=communities, page=page, total_pages=total_pages %}
+<div id="contents" class="">
+  <div
+    class="card-content divide-y divide-slate-800 flex flex-col gap-y-3 mt-2 pr-2 max-h-96 overflow-y-auto border-0 border-blue-500"
+  >
+    {% for community in communities %} {% with community=community, page=page,
+    total_pages=total_pages %} {% include 'components/horizontalCard.html' %} {%
+    endwith %} {% endfor %} {% if page != total_pages %}
+    <div
+      hx-get="/?page={{page+1}}"
+      hx-select=".card-content>div"
+      hx-trigger="intersect once delay:1500ms"
+      hx-indicator="#loading-indicator"
+      hx-swap="outerHTML"
+    >
+      <img
+        id="loading-indicator"
+        class="htmx-indicator mx-auto h-16"
+        src="https://htmx.org/img/bars.svg"
+      />
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endwith %} {% endblock %}

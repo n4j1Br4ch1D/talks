@@ -1,0 +1,69 @@
+<div class="card-content flex flex-col gap-y-3 mt-5">
+  <div
+    class="align-items-center gap-x-2 items-center content-center justify-center text-slate-400 text-center m-auto"
+  >
+    <img
+      class="avatar h-16 w-16 rounded-full border-2 border-slate-600 bg-slate-700 opacity-50 p-2 m-auto"
+      src="../{{ community.img }}"
+      alt=""
+    />
+
+    <h3 class="font-semibold">{{community.title}} community</h3>
+
+    <div class="flex justify-center items-center gap-x-1">
+      <span class="h-3 w-3 rounded-full bg-green-500"></span>
+      <span>{{ community.members }} Member</span>
+    </div>
+
+    <div class="card-action flex justify-center mt-2">
+      {% if community.is_member %}
+      <button
+        class="w-30 content-center flex items-center px-2 py-1 text-md text-white bg-slate-700 hover:bg-gray-600 rounded-full"
+        hx-trigger="click"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-post="/toggle-joing/{{ community.id }}?action=unjoin"
+      >
+        <i class="bx bxs-group mr-1"></i>
+        <span>Unjoin</span>
+      </button>
+      {% else %}
+      <button
+        class="w-30 content-center flex items-center px-2 py-1 text-md text-white bg-slate-700 hover:bg-gray-600 rounded-full"
+        hx-trigger="click"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-post="/toggle-joing/{{ community.id }}?action=join"
+      >
+        <i class="bx bxs-group mr-1"></i>
+        <span>Join-in</span>
+      </button>
+      {% endif %}
+    </div>
+    <p class="text-md m-4">{{ community.desc }}</p>
+    <div
+      class="flex -space-x-4 rtl:space-x-reverse justify-center align-items-center"
+    >
+      <img
+        class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+        src="../static/img/profile-picture-3.jpg"
+        alt=""
+      />
+      <img
+        class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+        src="../static/img/profile-picture-4.jpg"
+        alt=""
+      />
+      <img
+        class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+        src="../static/img/profile-picture-5.jpg"
+        alt=""
+      />
+      <a
+        class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800"
+        href="#"
+        >+{{community.members}}</a
+      >
+    </div>
+  </div>
+</div>
