@@ -48,7 +48,7 @@ Agile Software Engineer | Software Craftsman
 ### Beyond the Hype: Rethinking SPAs in a Different Way
 presented At: 
 - [DEVOXX.MA](https://devoxx.ma/talk/beyond-the-hype-rethinking-spas-in-a-different-way)
-- [Resources](https://github.com/n4j1Br4ch1D/talks/Beyond%20the%20Hype%20-%20Rethinking%20SPAs%20in%20a%20Different%20Way/)
+- [Resources](https://github.com/n4j1Br4ch1D/talks/tree/main/Beyond%20the%20Hype%20-%20Rethinking%20SPAs%20in%20a%20Different%20Way)
 
 ## Workshops
 
